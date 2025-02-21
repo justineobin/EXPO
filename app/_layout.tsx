@@ -1,39 +1,61 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import React from 'react';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+const RootLayout: React.FC = () => {
+    return (
+        <Stack>
+            <Stack.Screen
+                name="index"
+                options={{
+                    title: 'Home',
+                    headerStyle: { backgroundColor: '#333333' },  
+                    headerTintColor: '#fff',
+                }}
+            />
+            <Stack.Screen
+                name="about"
+                options={{
+                    title: 'About',
+                    headerStyle: { backgroundColor: '#333333' },
+                    headerTintColor: '#fff',
+                }}
+            />
+            <Stack.Screen
+                name="education"
+                options={{
+                    title: 'Education',
+                    headerStyle: { backgroundColor: '#333333' },
+                    headerTintColor: '#fff',
+                }}
+            />
+            <Stack.Screen
+                name="hobbies"
+                options={{
+                    title: 'Hobbies',
+                    headerStyle: { backgroundColor: '#333333' },
+                    headerTintColor: '#fff',
+                }}
+            />
+            <Stack.Screen
+                name="skills"
+                options={{
+                    title: 'Skills',
+                    headerStyle: { backgroundColor: '#333333' },
+                    headerTintColor: '#fff',
+                }}
+            />
+            <Stack.Screen
+                name="contacts"
+                options={{
+                    title: 'Contacts',
+                    headerStyle: { backgroundColor: '#333333' },
+                    headerTintColor: '#fff',
+                }}
+            />
+        </Stack>
+    );
+};
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+export default RootLayout;
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
-}
