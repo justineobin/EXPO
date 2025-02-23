@@ -8,8 +8,9 @@ const RootLayout: React.FC = () => {
                 name="index"
                 options={{
                     title: 'Home',
-                    headerStyle: { backgroundColor: '#333333' },  
+                    headerStyle: { backgroundColor: '#333333' },
                     headerTintColor: '#fff',
+                    headerLeft: () => null,  
                 }}
             />
             <Stack.Screen
@@ -18,6 +19,7 @@ const RootLayout: React.FC = () => {
                     title: 'About',
                     headerStyle: { backgroundColor: '#333333' },
                     headerTintColor: '#fff',
+                    headerLeft: () => null, 
                 }}
             />
             <Stack.Screen
@@ -26,6 +28,7 @@ const RootLayout: React.FC = () => {
                     title: 'Education',
                     headerStyle: { backgroundColor: '#333333' },
                     headerTintColor: '#fff',
+                    headerLeft: () => null,  
                 }}
             />
             <Stack.Screen
@@ -34,6 +37,7 @@ const RootLayout: React.FC = () => {
                     title: 'Hobbies',
                     headerStyle: { backgroundColor: '#333333' },
                     headerTintColor: '#fff',
+                    headerLeft: () => null,  
                 }}
             />
             <Stack.Screen
@@ -42,6 +46,7 @@ const RootLayout: React.FC = () => {
                     title: 'Skills',
                     headerStyle: { backgroundColor: '#333333' },
                     headerTintColor: '#fff',
+                    headerLeft: () => null,  
                 }}
             />
             <Stack.Screen
@@ -50,6 +55,7 @@ const RootLayout: React.FC = () => {
                     title: 'Contacts',
                     headerStyle: { backgroundColor: '#333333' },
                     headerTintColor: '#fff',
+                    headerLeft: () => null,  
                 }}
             />
         </Stack>
@@ -57,5 +63,6 @@ const RootLayout: React.FC = () => {
 };
 
 export default RootLayout;
+
 
 

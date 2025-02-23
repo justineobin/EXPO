@@ -1,15 +1,21 @@
-import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, ImageBackground } from "react-native";
+import { Link } from 'expo-router';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Education() {
   return (
-    <ScrollView style={styles.scrollContainer}>
-      <View style={styles.container}>
+    <ImageBackground 
+      source={require('./img/2.jpg')}  
+      style={styles.container}
+      resizeMode="cover" 
+    >
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.header}>My Education Journey</Text>
 
-        {/* New Anglo Fil Chinese School (Elementary) */}
+        
         <View style={styles.schoolContainer}>
           <Image 
-            source={require('./img/elem.jpg')}  // Path to the logo image
+            source={require('./img/elem.jpg')}  
             style={styles.schoolLogo}
           />
           <View style={styles.textContainer}>
@@ -22,10 +28,10 @@ export default function Education() {
           </View>
         </View>
 
-        {/* Eduardo V. Agomma (High School) */}
+        
         <View style={styles.schoolContainer}>
           <Image 
-            source={require('./img/high.jpg')}  // Path to the logo image
+            source={require('./img/high.jpg')}  
             style={styles.schoolLogo}
           />
           <View style={styles.textContainer}>
@@ -39,10 +45,10 @@ export default function Education() {
           </View>
         </View>
 
-        {/* Naga College Foundation (Current) */}
+        
         <View style={styles.schoolContainer}>
           <Image 
-            source={require('./img/coll.jpg')}  // Path to the logo image
+            source={require('./img/coll.jpg')}  
             style={styles.schoolLogo}
           />
           <View style={styles.textContainer}>
@@ -55,25 +61,51 @@ export default function Education() {
             </Text>
           </View>
         </View>
+      </ScrollView>
+
+      {/* Navigation Toolbar */}
+      <View style={styles.toolbar}>
+        {/* Home Button */}
+        <Link href="/" style={styles.button}>
+          <MaterialIcons name="home" size={24} color="#1D3C34" />
+        </Link>
+        {/* Other Navigation Links */}
+        <Link href="/about" style={styles.button}>
+          <MaterialIcons name="info" size={24} color="#1D3C34" />
+        </Link>
+        <Link href="/education" style={styles.button}>
+          <MaterialIcons name="school" size={24} color="#1D3C34" />
+        </Link>
+        <Link href="/hobbies" style={styles.button}>
+          <MaterialIcons name="sports-soccer" size={24} color="#1D3C34" />
+        </Link>
+        <Link href="/skills" style={styles.button}>
+          <MaterialIcons name="build" size={24} color="#1D3C34" />
+        </Link>
+        <Link href="/contacts" style={styles.button}>
+          <MaterialIcons name="contacts" size={24} color="#1D3C34" />
+        </Link>
       </View>
-    </ScrollView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollContainer: {
-    flex: 1,
-  },
   container: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
+  scrollContainer: {
+    flexGrow: 1,
     padding: 20,
-    backgroundColor: '#1D3C34',  // Dark Forest Green background
   },
   header: {
     fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 40,
-    color: '#F4E1D2',  // Light Beige text color for header
+    color: '#F4E1D2',  
   },
   schoolContainer: {
     marginBottom: 40,
@@ -82,26 +114,43 @@ const styles = StyleSheet.create({
   schoolLogo: {
     width: 120,
     height: 120,
-    borderRadius: 15,  // Rounded corners for the logos
+    borderRadius: 15,  
     marginBottom: 10,
   },
   textContainer: {
-    backgroundColor: '#4C8C72', // Lighter Green background for text container
+    backgroundColor: 'rgba(255, 182, 150, 0.8)', 
     padding: 20,
-    borderRadius: 10,  // Rounded corners for the container
-    width: '80%',  // Reduced width to make it smaller and fit better on screen
-    marginHorizontal: 'auto', // Center-align the container horizontally
+    borderRadius: 10,
+    width: '80%',
+    marginHorizontal: 'auto',
   },
   schoolName: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#F4E1D2',  // Light Beige text color for school names
+    color: '#F4E1D2',  
     marginBottom: 10,
   },
   schoolDescription: {
     fontSize: 16,
-    color: '#F4E1D2',  // Light Beige text for description
+    color: '#F4E1D2', 
     textAlign: 'center',
     lineHeight: 24,
+  },
+  toolbar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(244, 225, 210, 0.8)', 
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 10,
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    textDecorationLine: 'none',
   },
 });
